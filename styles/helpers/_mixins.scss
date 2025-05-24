@@ -65,15 +65,17 @@
   overflow: hidden !important;
 }
 
-@mixin full-vw-crentered-line($property: top) {
+@mixin full-vw-crentered-line($property: top, $left: 50%, $right: auto, $translate: -50%) {
   position: relative;
 
   &::before {
-    @include abs-x;
-
     content: '';
+    position: absolute;
+    left: $left;
+    right: $right;
     #{$property}: 0;
-    width: 100vw;
+    translate: $translate;
+    width: var(--100vw);
     height: rem(1);
     background-color: var(--color-dark-15);
   }
